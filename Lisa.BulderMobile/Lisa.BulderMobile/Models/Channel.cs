@@ -2,7 +2,7 @@
 
 namespace Lisa.BulderMobile
 {
-	public class Channels
+	public class Channel
 	{
 		public string Administrators { get; set; }
 		public string Authors { get; set; }

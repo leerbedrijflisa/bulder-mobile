@@ -19,9 +19,9 @@ namespace Lisa.BulderMobile
 		{
 			using(var client = new HttpClient())
 			{
-				client.BaseAddress = new Uri("http://10.10.35.49:13693/");
+				client.BaseAddress = new Uri("http://10.10.33.228:13693/");
 
-				var result = await client.GetAsync("/channels");
+				var result = await client.GetAsync("/channels/");
 
 				if(result.StatusCode == HttpStatusCode.OK)
 				{
