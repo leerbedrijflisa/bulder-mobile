@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Lisa.BulderMobile.ChannelOverview">
-	<ContentPage.Content>
-		<StackLayout>
-			<Picker x:Name="TeacherPicker"/>
-			<Button x:Name="GetButton" Text="Get Channels" Clicked="GetChannels" />
-		</StackLayout>
-	</ContentPage.Content>
+	<ListView x:Name="ChannelsList">
+	    <ListView.ItemTemplate>
+	      <DataTemplate>
+	        <TextCell Text="{Binding Name}" />
+	      </DataTemplate>
+	    </ListView.ItemTemplate>
+	</ListView>
 </ContentPage>

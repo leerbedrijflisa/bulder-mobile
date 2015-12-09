@@ -19,7 +19,7 @@ namespace Lisa.BulderMobile
 		{
 			using(var client = new HttpClient())
 			{
-				client.BaseAddress = new Uri("http://10.10.33.228:13693/");
+				client.BaseAddress = new Uri("http://10.10.34.7:13693/");
 
 				var result = await client.GetAsync("/channels/");
 
@@ -27,14 +27,16 @@ namespace Lisa.BulderMobile
 				{
 					var json = await result.Content.ReadAsStringAsync();
 
-					var channels = JsonConvert.DeserializeObject<IEnumerable<Channel>>(json);
+					var channels = JsonConvert.DeserializeObject<List<Channel>>(json);
 
-					foreach(var channel in channels)
-					{
-						TeacherPicker.Items.Add(channel.Name);
-					}
+					ChannelsList.ItemsSource = channels;
 				}
 			}
+		}
+
+		public async void OnStart()
+		{
+			await GetChannels(); 
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace Lisa.BulderMobile
 		{
 			using(var client = new HttpClient())
 			{
-				client.BaseAddress = new Uri("http://10.10.35.49:13693/");
+				client.BaseAddress = new Uri("http://10.10.33.252:13693/");
 
 				var result = await client.GetAsync("/messages/AAA/");
 
