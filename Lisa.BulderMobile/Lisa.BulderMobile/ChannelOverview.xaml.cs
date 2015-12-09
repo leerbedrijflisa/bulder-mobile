@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Lisa.BulderMobile
 {
@@ -15,7 +16,12 @@ namespace Lisa.BulderMobile
 			InitializeComponent ();
 		}
 
-		private async void GetChannels(object sender, EventArgs e)
+		protected async override void OnAppearing ()
+		{
+			ChannelsList.ItemsSource = await GetChannels();
+		}
+
+		private async Task<List<Channel>> GetChannels()
 		{
 			using(var client = new HttpClient())
 			{
@@ -29,14 +35,12 @@ namespace Lisa.BulderMobile
 
 					var channels = JsonConvert.DeserializeObject<List<Channel>>(json);
 
-					ChannelsList.ItemsSource = channels;
+					return channels;
+				} else {
+
+					return null;
 				}
 			}
-		}
-
-		public async void OnStart()
-		{
-			await GetChannels(); 
 		}
 	}
 }
