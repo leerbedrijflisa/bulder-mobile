@@ -14,8 +14,14 @@ namespace Lisa.BulderMobile
 		public ChannelOverview ()
 		{
 			InitializeComponent ();
+			ChannelsList.IsPullToRefreshEnabled = true;
 		}
 
+		private async void GetChannelsArgs (object sender, EventArgs e)
+		{
+			ChannelsList.ItemsSource = await GetChannels();
+		}
+			
 		protected async override void OnAppearing ()
 		{
 			ChannelsList.ItemsSource = await GetChannels();
@@ -35,11 +41,17 @@ namespace Lisa.BulderMobile
 
 					var channels = JsonConvert.DeserializeObject<List<Channel>>(json);
 
+					ChannelsList.EndRefresh();
+
 					return channels;
+
 				} else {
 
 					return null;
+
 				}
+
+
 			}
 		}
 	}
