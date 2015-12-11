@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace Lisa.BulderMobile
@@ -14,5 +13,7 @@ namespace Lisa.BulderMobile
             // The root page of your application
 			MainPage = new NavigationPage (new ChannelOverview());
         }
+	
+	}
 
 }
