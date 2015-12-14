@@ -25,6 +25,10 @@ namespace Lisa.BulderMobile
 		{
 			MessagesList.ItemsSource = await GetMessagesArgs(selectedChannel);
 
+			MessagesList.ItemSelected += (sender, e) => {
+				((ListView)sender).SelectedItem = null;
+			};
+
 		}
 
 		//Filling variable
