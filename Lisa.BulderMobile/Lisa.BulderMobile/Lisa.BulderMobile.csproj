@@ -41,10 +41,13 @@
     <Compile Include="Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChannelOverview.xaml.cs">
+    <Compile Include="Models\Channel.cs" />
+    <Compile Include="Views\ChannelOverview.xaml.cs">
       <DependentUpon>ChannelOverview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Channel.cs" />
+    <Compile Include="Views\ChannelSelect.xaml.cs">
+      <DependentUpon>ChannelSelect.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -76,12 +79,16 @@
   <ItemGroup />
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Test.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChannelOverview.xaml">
+    <EmbeddedResource Include="Views\ChannelOverview.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChannelSelect.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

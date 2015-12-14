@@ -16,13 +16,22 @@ namespace Lisa.BulderMobile
 			InitializeComponent ();
 			ChannelsList.IsPullToRefreshEnabled = true;
 		}
+			
+		void OnSelection (object sender, SelectedItemChangedEventArgs e)
+		{
+			if (e.SelectedItem == null) {
+				return;
+			}
 
-		private async void GetChannelsArgs (object sender, EventArgs e)
+			Navigation.PushAsync (new ChannelSelect (((Channel)e.SelectedItem)));
+		}
+
+		protected async override void OnAppearing ()
 		{
 			ChannelsList.ItemsSource = await GetChannels();
 		}
-			
-		protected async override void OnAppearing ()
+
+		private async void GetChannelsArgs (object sender, EventArgs e)
 		{
 			ChannelsList.ItemsSource = await GetChannels();
 		}
