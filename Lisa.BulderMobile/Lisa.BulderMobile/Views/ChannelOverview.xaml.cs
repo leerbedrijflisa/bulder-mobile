@@ -40,7 +40,7 @@ namespace Lisa.BulderMobile
 		{
 			using(var client = new HttpClient())
 			{
-				client.BaseAddress = new Uri("http://10.10.34.7:13693/");
+				client.BaseAddress = new Uri("http://10.10.48.226:13693/");
 
 				var result = await client.GetAsync("/channels/");
 
@@ -59,8 +59,6 @@ namespace Lisa.BulderMobile
 					return null;
 
 				}
-
-
 			}
 		}
 	}

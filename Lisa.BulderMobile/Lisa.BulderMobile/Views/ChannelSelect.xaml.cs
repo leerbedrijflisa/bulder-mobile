@@ -11,7 +11,6 @@ namespace Lisa.BulderMobile
 {
 	public partial class ChannelSelect : ContentPage
 	{
-
 		public string partitionKey;
 
 		public ChannelSelect (Channel selectedChannel)
@@ -43,7 +42,7 @@ namespace Lisa.BulderMobile
 		{
 			using(var client = new HttpClient())
 			{
-				client.BaseAddress = new Uri("http://10.10.34.7:13693/");
+				client.BaseAddress = new Uri("http://10.10.48.226:13693/");
 		
 				var result = await client.GetAsync("/messages/" + partitionKey);
 
@@ -60,12 +59,8 @@ namespace Lisa.BulderMobile
 					return null;
 
 				}
-
-
 			}
 		}
-			
 	}
-
 }
 
